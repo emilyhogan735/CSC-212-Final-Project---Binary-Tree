@@ -1,38 +1,37 @@
-// must use classes
-// must store the words of an input text file
-//      for the word "node" in the tree, a count with the number of repeats must also be stored
-// ensure at least search/insert methods are correctly implimented
-//      search must also return/show the count
-// generate a DOT file for visualization
-// use linked lists?
-
 #include <iostream>
 #include "tree.h"
 #include <vector>
-#include <string>
 #include <fstream> // to manage files
 using namespace std;
 
 // call function
-vector<string> ReadFile(string fname);
+vector<int> ReadFile(string fname);
 
 int main(int argc, char* argv[]){ // takes in multiple string arguments
     
     // take in file name
     string fname = argv[1];
     // read in data
-    vector<string> words = ReadFile(fname);
+    vector<int> nums = ReadFile(fname);
 
-    // call constructors
-    // BSTNode BSTNode();
-    // BSTree BSTree();
+    // create empty tree
+    BSTree tree = BSTree();
+    // loop through each word input and insert them into the tree one at a time
+    for(int i = 0; nums.size(); i++){
+        int key = nums[i];
+        tree.insert(key);
+    }
+
+    // search through tree for desired word
+
+
 
     return 0;
 }
 
 // function to read in text file data
-vector<string> ReadFile(string fname){
-    vector<string> words;
+vector<int> ReadFile(string fname){
+    vector<int> nums;
      // Opens the file for reading
     ifstream file(fname);
     // Creates a string to hold each line in temporarily
@@ -40,7 +39,7 @@ vector<string> ReadFile(string fname){
     // Iterates over the file, pushing each `str` into the words vector
     while (getline(file, str)) {
         // push the string into the words vector
-        words.push_back(str);
+        nums.push_back(stoi(str));
     }
-    return words;
+    return nums;
 }
