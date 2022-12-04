@@ -22,7 +22,7 @@ int main(int argc, char* argv[]){ // takes in multiple string arguments
         tree.insert(key);
     }
 
-    // search through tree for desired word
+    // search through tree for desired int
 
 
 
