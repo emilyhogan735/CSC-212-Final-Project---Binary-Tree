@@ -23,20 +23,19 @@ The B-tree generalizes the binary search tree, allowing for nodes with more than
 | Insertion | O(log n) |
 | Deletion | O(log n) |
 
->For this project we only implemented Search and Insertion.
+>For this project we only implemented Search and Insertion.\
 >Deletion was not implemented
 
-Properties of B-Tree: 
-
-    All leaves are at the same level.
-    B-Tree is defined by the term minimum degree ‘t‘. The value of ‘t‘ depends upon disk block size.
-    Every node except the root must contain at least t-1 keys. The root may contain a minimum of 1 key.
-    All nodes (including root) may contain at most (2*t – 1) keys.
-    Number of children of a node is equal to the number of keys in it plus 1.
-    All keys of a node are sorted in increasing order. The child between two keys k1 and k2 contains all keys in the range from k1 and k2.
-    B-Tree grows and shrinks from the root which is unlike Binary Search Tree. Binary Search Trees grow downward and also shrink from downward.
-    Like other balanced Binary Search Trees, the time complexity to search, insert and delete is O(log n).
-    Insertion of a Node in B-Tree happens only at Leaf Node.
+Properties of B-Tree
+* All leaves are at the same level.
+* B-Tree is defined by the term minimum degree ‘t‘. The value of ‘t‘ depends upon disk block size.
+* Every node except the root must contain at least t-1 keys. The root may contain a minimum of 1 key.
+* All nodes (including root) may contain at most (2*t – 1) keys.
+* Number of children of a node is equal to the number of keys in it plus 1.
+* All keys of a node are sorted in increasing order. The child between two keys k1 and k2 contains all keys in the range from k1 and k2.
+* B-Tree grows and shrinks from the root which is unlike Binary Search Tree. Binary Search Trees grow downward and also shrink from downward.
+* Like other balanced Binary Search Trees, the time complexity to search, insert and delete is O(log n).
+* Insertion of a Node in B-Tree happens only at Leaf Node.
 
 ## Methods:
 
@@ -52,6 +51,7 @@ Properties of B-Tree:
 ```
 [How to Compile our Code]
 ```
+>Insert mermaid graph here
 
 ## Contribution Breakdown:
 Emily: Implemented the skeleton of the source code, and the insertion method.\
