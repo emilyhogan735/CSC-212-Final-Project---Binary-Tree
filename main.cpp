@@ -1,14 +1,12 @@
-#include <iostream>
 #include "tree.h"
-#include <vector>
-#include <fstream> // to manage files
+ // to manage files
 using namespace std;
 
 // call function
 vector<int> ReadFile(string fname);
 
-int main(int argc, char* argv[]){ // takes in multiple string arguments
-    
+int main(int argc, char* argv[]) { // takes in multiple string arguments
+
     // take in file name
     string fname = argv[1];
     // read in data
@@ -17,7 +15,7 @@ int main(int argc, char* argv[]){ // takes in multiple string arguments
     // create empty tree
     BSTree tree = BSTree();
     // loop through each num input and insert them into the tree one at a time
-    for(int i = 0; i < nums.size(); i++){
+    for (int i = 0; i < nums.size(); i++) {
         int key = nums[i];
         tree.insert(key);
     }
@@ -30,9 +28,9 @@ int main(int argc, char* argv[]){ // takes in multiple string arguments
 }
 
 // function to read in text file data
-vector<int> ReadFile(string fname){
+vector<int> ReadFile(string fname) {
     vector<int> nums;
-     // Opens the file for reading
+    // Opens the file for reading
     ifstream file(fname);
     // Creates a string to hold each line in temporarily
     string str;
