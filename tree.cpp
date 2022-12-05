@@ -32,40 +32,40 @@ void BSTree::insert(int key){ // use method instead of function to access BSTree
     // if not empty, 
     else{
         // set current node to the root
-        BSTNode current = *root;
+        BSTNode* current = root;
 
         // compare the key being inserted to the current node
         while(true){ // infinite loop until broken out of
 
             // if they match, update counter and exit loop
-            if(key == current.key){
-                current.count += 1; // update counter
+            if(key == current->key){
+                current->count += 1; // update counter
                 break; // done with insertion
             }
 
             // if they don't match, determine if insert should go left or right
-            if(key < current.key){ // check left
+            if(key < current->key){ // check left
                 // determine if there is a left child
-                if(current.left != nullptr){ // if there is a left child, update current to the child
-                    current = *current.left;
+                if(current->left != nullptr){ // if there is a left child, update current to the child
+                    current = current->left;
                     continue; // skip to next iteration of the loop
                 }
-                if(current.left == nullptr){ // If there is no left child, create a new node and make that the left child of the current node
+                if(current->left == nullptr){ // If there is no left child, create a new node and make that the left child of the current node
                     BSTNode* new_node = new BSTNode(key, 1);
-                    current.left = new_node;
+                    current->left = new_node;
                     break; // done with insertion
                 }
             }
 
-            if(key > current.key){ // check right
+            if(key > current->key){ // check right
                 // determine if there is a right child
-                if(current.right != nullptr){ // if there is a right child, update current to the child
-                    current = *current.right;
+                if(current->right != nullptr){ // if there is a right child, update current to the child
+                    current = current->right;
                     continue; // skip to next iteration of the loop
                 }
-                if(current.right == nullptr){ // If there is no right child, create a new node and make that the right child of the current node
+                if(current->right == nullptr){ // If there is no right child, create a new node and make that the right child of the current node
                     BSTNode* new_node = new BSTNode(key, 1);
-                    current.right = new_node;
+                    current->right = new_node;
                     break; // done with insertion
                 }
             }
@@ -85,7 +85,7 @@ int BSTree::search(int key){
     // if search key is greater than the current node's key then SEARCH ON RIGHT CHILD
     // if search key is less than the current node's key then SEARCH ON LEFT CHILD
     // stop when current node is NULL, (NOT FOUND)
-
+    return count;
 }
 
 // impliment the deconstructor to clean up BSTNode data
@@ -103,5 +103,7 @@ BSTNode::~BSTNode(){
 
 // impliment the deconstructor to clean up BSTree data
 BSTree::~BSTree(){
-    this->root->~BSTNode(); // delete root, aka itself
+    if(this->root != nullptr) { // while not empty
+        this->root->~BSTNode(); // delete root, aka itself
+    }
 }

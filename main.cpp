@@ -16,13 +16,13 @@ int main(int argc, char* argv[]){ // takes in multiple string arguments
 
     // create empty tree
     BSTree tree = BSTree();
-    // loop through each word input and insert them into the tree one at a time
-    for(int i = 0; nums.size(); i++){
+    // loop through each num input and insert them into the tree one at a time
+    for(int i = 0; i < nums.size(); i++){
         int key = nums[i];
         tree.insert(key);
     }
 
-    // search through tree for desired word
+    // search through tree for desired int
 
 
 
@@ -38,7 +38,7 @@ vector<int> ReadFile(string fname){
     string str;
     // Iterates over the file, pushing each `str` into the words vector
     while (getline(file, str)) {
-        // push the string into the words vector
+        // push the int into the nums vector
         nums.push_back(stoi(str));
     }
     return nums;
