@@ -26,9 +26,9 @@ Designed a B-Tree class from scratch.
 ```
 
 ## Contribution Breakdown:
-Emily: Implemented the skeleton of the source code, and the insertion method. "\t"
-Liam: Implemented the search method. "\t"
-Ken: GitHub .README markdown, Failed to Implement the DOT Visualization.
-Matthew: MIA.
+Emily: Implemented the skeleton of the source code, and the insertion method.\
+Liam: Implemented the search method.\
+Ken: GitHub .README markdown, Failed to Implement the DOT Visualization.\
+Matthew: MIA.\
 
 [Reminder to add who added which slides in the future]
