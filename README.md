@@ -51,6 +51,8 @@ For example, the B Tree search method is describe in the following process:
 * 49>45, move to right. Compare 49.
 * match found, return the interger
 
+--------------------------------------------------------------
+
 **Insertion**
 
 Insertions are done at the leaf node level.
@@ -71,7 +73,9 @@ A generalized procedure:
   * Split the node into the two nodes at the **median**.
   * Push the **median** element upto its parent node.
   * If the parent node also contain m-1 number of keys, then split it too by following the same steps.
-  
+
+--------------------------------------------------------------
+
 **Deletion**
 Deletion is also performed at the leaf nodes. The node which is to be deleted can either be a leaf node or an internal node. Following algorithm needs to be followed in order to delete a node from a B tree.
 
