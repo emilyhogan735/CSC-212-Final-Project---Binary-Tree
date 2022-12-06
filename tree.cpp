@@ -2,10 +2,6 @@
 #include "tree.h"
 using namespace std;
 
-// call functions
-BSTNode search(BSTNode* root, int key);
-void insert(int key);
-
 // implement the constructor
 BSTNode::BSTNode(int key, int count) {
     this->count = count;
@@ -74,21 +70,44 @@ void BSTree::insert(int key) { // use method instead of function to access BSTre
 
 }
 
-// implement search method
-int BSTree::search(BSTNode* root, int key) {
-    // start at root node
-    if (root == NULL) { // stop when current node is NULL, (NOT FOUND)
-        return false;
+// function to search tree for given integer
+int BSTree::search_tree(int search_for){
+
+    // determine if there is no root
+    if (this->root == nullptr) { // return 0
+        return 0;
     }
-    else if (root->key == key) { // if the search key matches the current node's key then FOUND
-        return true;
+
+    // if there is a root
+    return this->root->search_node(search_for); // search through each node in the tree
+
+}
+
+// function to search through individual notes for given integer, recursively
+int BSTNode::search_node(int search_for){
+
+    if (this->key == search_for) { // if the search key matches the current node's key then FOUND, return count
+        return this->count;
     }
-    else if (root->key <= key) { // if search key is greater than the current node's key then SEARCH ON RIGHT CHILD
-        return search(root->right, key);
+
+    else if (this->key > search_for) { // if search key is greater than the current node's key then SEARCH ON LEFT CHILD
+        if (this->left != nullptr){ // check if left child exists
+            return this->left->search_node(search_for); // return int
+        }
+        else{
+            return 0; // if not found, return 0
+        }
     }
-    else {
-        return search(root->left, key); // if search key is less than the current node's key then SEARCH ON LEFT CHILD
+
+    else { // if search key is less than the current node's key then SEARCH ON RIGHT CHILD
+        if (this->right != nullptr){ // check if right child exists
+            return this->right->search_node(search_for); // return int
+        }
+        else{
+            return 0; // if not found, return 0
+        }
     }
+
 }
 
 // implement the deconstructor to clean up BSTNode data

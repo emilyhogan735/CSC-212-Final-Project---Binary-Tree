@@ -21,8 +21,16 @@ int main(int argc, char* argv[]) { // takes in multiple string arguments
     }
 
     // search through tree for desired int
-
-
+    int search_for;
+    cout << "Please enter an integer you'd like to look for in the tree: ";
+    cin >> search_for;
+    int count = tree.search_tree(search_for);
+    if(count == 0){
+        cout << "This integer was not found in the tree";
+    }
+    else{
+        cout << search_for << " was found in the tree with a count of " << count;
+    }
 
     return 0;
 }

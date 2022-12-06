@@ -18,6 +18,9 @@ public:
     BSTNode(int key, int count); // constructor - makes new node, passes on the data
     ~BSTNode(); // destructor - destroys old memory
 
+    // functions
+    int search_node(int search_for);
+
     friend class BSTree; // can access private data from BSTree
 };
 
@@ -32,5 +35,5 @@ public:
 
     // functions
     void insert(int key);
-    int search(BSTNode* root, int key);
+    int search_tree(int search_for);
 };

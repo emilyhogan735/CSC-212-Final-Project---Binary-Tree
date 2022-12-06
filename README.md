@@ -54,7 +54,7 @@ Properties of B-Tree
 >Insert mermaid graph here
 
 ## Contribution Breakdown:
-Emily: Implemented the skeleton of the source code, and the insertion method.\
+Emily: Implemented the skeleton of the source code, implemented BSTree and BSTNode, implemented insertion, fixed search\
 Liam: Implemented the search method.\
 Ken: GitHub .README markdown, Failed to Implement the DOT Visualization.\
 Matthew: MIA.
