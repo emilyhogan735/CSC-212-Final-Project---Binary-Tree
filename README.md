@@ -1,5 +1,6 @@
-# CSC 212 Final Project - BinaryTree
-The final project for CSC212. We must implement a binary tree and its standard functions.
+# CSC 212 Final Project - BTree
+The final project for CSC212. We must implement a btree data structure and its standard functions.
+>A B-tree is a balanced tree—not a binary tree.
 
 
 |      Name     |     Role    |
@@ -40,8 +41,57 @@ Properties of B-Tree
 ## Methods:
 
 **Search**
+![](https://cdn.discordapp.com/attachments/1047363280257167461/1049534089088225321/image.png)\
+Searching in B Trees is similar to a Binary Search Tree.\ 
+For example, the B Tree search method is describe in the following process:
+
+* Compare item 49 with root node 78. since 49 < 78 hence, move to its left sub-tree.
+* Since, 40<49<56, traverse right sub-tree of 40.
+* 49>45, move to right. Compare 49.
+* match found, return the interger
+
 **Insertion**
+
+Insertions are done at the leaf node level.
+
+We want to insert `8` into the BTree 
+![](https://cdn.discordapp.com/attachments/1047363280257167461/1049535291049906237/b-tree-inserting.png)
+After a traversal `8` will be inserted to the right of `5`
+![](https://cdn.discordapp.com/attachments/1047363280257167461/1049535304375226368/b-tree-inserting2.png)
+The node now contain `5` keys which is greater than `4` keys. Therefore split the node from the median. Notice `8` is the median after the insertion.\
+Then `8` is pushed up to a higher level node, if the 2nd height's node is also full, the split process repeats, in this case the higher parent node has 2 keys which still has space for `8`, the process ends here.
+![](https://cdn.discordapp.com/attachments/1047363280257167461/1049535315162955837/b-tree-inserting3.png)
+
+A generalized procedure:
+* Traverse the B Tree in order to find the appropriate leaf node at which the node can be inserted.
+* If the leaf node contain less than m-1 keys then insert the element in the increasing order.
+* Else, if the leaf node contains m-1 keys, then follow the following steps.
+  * Insert the new element in the increasing order of elements.
+  * Split the node into the two nodes at the **median**.
+  * Push the **median** element upto its parent node.
+  * If the parent node also contain m-1 number of keys, then split it too by following the same steps.
+  
 **Deletion**
+Deletion is also performed at the leaf nodes. The node which is to be deleted can either be a leaf node or an internal node. Following algorithm needs to be followed in order to delete a node from a B tree.
+
+This example we will delete the node `53` from the B Tree of order `5`
+![](https://cdn.discordapp.com/attachments/1047363280257167461/1049536746045579264/b-tree-deletion.png)
+`53` is present in the right child of element `49`. Delete it. 
+![](https://cdn.discordapp.com/attachments/1047363280257167461/1049536759253446676/b-tree-deletion2.png)
+Now, `57` is the only element which is left in the node, the minimum number of keys that must be present in a B tree of order `5` is `2`. Therefore we merge `57` into the `49 -> 23,34` sub tree. Because `57` is greater than `49`. `49 is also pushed down to the leaf node.
+![](https://cdn.discordapp.com/attachments/1047363280257167461/1049536774642352158/b-tree-deletion3.png)
+
+A generalized procedure:
+
+* Locate the leaf node.
+* If there are more than m/2 keys in the leaf node then delete the desired key from the node.
+* If the leaf node doesn't contain m/2 keys then complete the keys by taking the element from eight or left sibling.
+  * If the left sibling contains more than m/2 elements then push its largest element up to its parent and move the intervening element down to the node where the key is deleted.
+  * If the right sibling contains more than m/2 elements then push its smallest element up to the parent and move intervening element down to the node where the key is deleted.
+* If neither of the sibling contain more than m/2 elements then create a new leaf node by joining two leaf nodes and the intervening element of the parent node.
+* If parent is left with less than m/2 nodes then, apply the above process on the parent too.
+
+If the the node which is to be deleted is an internal node, then replace the node with its in-order successor or predecessor. Since, successor or predecessor will always be on the leaf node hence, the process will be similar as the node is being deleted from the leaf node.
 
 ## Implementation:
 ```
