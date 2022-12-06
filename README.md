@@ -20,6 +20,7 @@ The B-tree generalizes the binary search tree, allowing for nodes with more than
 
 #### Time Complexity of a B-Tree:
 | Algorithm | Complexity O(n)|
+|-----------|----------------|
 | Search | O(log n) |
 | Insertion | O(log n) |
 | Deletion | O(log n) |
