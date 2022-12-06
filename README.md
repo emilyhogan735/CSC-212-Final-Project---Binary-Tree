@@ -1,4 +1,4 @@
-# CSC 212 Final Project - BTree
+# CSC 212 Final Project - B-Tree
 The final project for CSC212. We must implement a btree data structure and its standard functions.
 >A B-tree is a balanced tree—not a binary tree.
 
